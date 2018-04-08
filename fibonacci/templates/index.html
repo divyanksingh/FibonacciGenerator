@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" ng-app='FibonacciApp'>
+  <head>
+    <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generate fibonacci sequence</title>
+
+<script src='{% static "/js/angular.min.js" %}'></script>
+ <script src='{% static "/js/app.js" %}' ></script>
+
+
+  </head>
+  <body>
+    <div class='content'>
+        {% block content %}{% endblock content %}
+    </div>
+    <div ng-controller="FibonacciController as ctrl">
+      <form id="get-form">
+          <label>
+            Sequence number:
+            <input
+              name="depth" type="number" data-ng-model="ctrl.sequence" data-ng-change="ctrl.results = false"/>
+          </label>
+          <button type="button" data-ng-click="ctrl.submit()">Go </button>
+        </form>
+        <div data-ng-if="ctrl.results">
+        <span data-ng-if="ctrl.sequence_member">Fibonacci Series member {$ ctrl.sequence $} is {$ ctrl.sequence_member $}</span></br>
+        <span data-ng-if="ctrl.time_taken">Time taken to generate the fibonacci number: {$ ctrl.time_taken $} ms</span></br>
+        <span data-ng-if="ctrl.time_taken">Total TAT of request: {$ ctrl.diff $} ms</span></br>
+        <span data-ng-if="ctrl.error_message" class="text red">Error: {$ ctrl.error_message $}</span></br>
+        </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "model": "fibonacci.sequence",
+    "pk": 1,
+    "fields": {
+      "sequence_member": "0"    }
+  },
+  {
+    "model": "fibonacci.sequence",
+    "pk": 2,
+    "fields": {
+      "sequence_member": "1"    }
+  },
+  {
+    "model": "fibonacci.sequence",
+    "pk": 3,
+    "fields": {
+      "sequence_member": "1"    }
+  }
+]
