@@ -20,10 +20,10 @@ app.controller('FibonacciController', ['$http', function($http) {
 
       this.submit = function(){
       	fc.error_message = null
-        fc.results = true
       	var body = {"sequence": fc.sequence};
       	var start = new Date();
       	$http.post('/', body).then(function(res){
+          fc.results = true
       		var obj = res.data;
       		console.log("Server Response", obj);
       		fc.sequence_member = obj.sequence_member;
@@ -31,6 +31,7 @@ app.controller('FibonacciController', ['$http', function($http) {
       		var end = new Date();
       		fc.diff = end - start
       	}).catch(function(error){
+          fc.results = true
       		fc.error_message = error.data.message;
       	});
       }
